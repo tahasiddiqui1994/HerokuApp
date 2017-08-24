@@ -1,0 +1,304 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Database Systems Project</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <!-- Meta Tag -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO -->
+    <meta name="description" content="150 words">
+    <meta name="author" content="uipasta">
+    <meta name="url" content="http://www.yourdomainname.com">
+    <meta name="copyright" content="company name">
+    <meta name="robots" content="index,follow">
+    
+    
+    <title>Database Systems Project</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="images/favicon/apple-touch-icon.png">
+    
+    <!-- All CSS Plugins -->
+    <link rel="stylesheet" type="text/css" href="css/plugin.css">
+    
+    <!-- Main CSS Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="css/style1.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <!-- Google Web Fonts  -->
+<!--<script type="text/javascript">
+function generateTableForMyCourses(data) {
+    //Build an array containing Customer records.
+    var aaa = new Array();
+    aaa.push(["Course_ID","Course_Name","Credit_Hours","Semester_ID"]) ;
+    for (var i = 0; i < data.length; i++) {
+        aaa.push([data[i].corse_id, data[i].name,data[i].creditHours,data[i].semester_id]) ;
+    }
+ 
+    //Create a HTML Table element.
+    var table = document.createElement("TABLE");
+    table.border = "1";
+ 
+    //Get the count of columns.
+    var columnCount = aaa[0].length;
+ 
+    //Add the header row.
+    var row = table.insertRow(-1);
+    for (var i = 0; i < columnCount; i++) {
+        var headerCell = document.createElement("TH");
+        headerCell.innerHTML = aaa[0][i];
+        row.appendChild(headerCell);
+    }
+ 
+    //Add the data rows.
+    for (var i = 0; i < data.length ; i++) {
+        row = table.insertRow(-1);
+        for (var j = 0; j < columnCount ; j++) {
+            var cell = row.insertCell(-1);
+            cell.innerHTML = aaa[i][j] ;
+        }
+    }
+ 
+    var MyCoursesDataTable = document.getElementById("MyCoursesDataTable");
+    MyCoursesDataTable.innerHTML = "0000000000000000000";
+    MyCoursesDataTable.appendChild(table);
+}
+</script>-->
+</head>
+<body id="body1" style="background-image:  url(images/bg/bg.jpg)">
+
+
+
+    <!-- Home & Menu Section Start -->
+    <header id="home" class="home-section">
+        
+        <div class="header-top-area">
+            <div class="container">
+                <div class="row">
+                
+                    <div class="col-sm-3">
+                        <div class="logo">
+                            <a href="/" style="font-size: 30px">CRS</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-9">
+                        <div class="navigation-menu">
+                            <div class="navbar">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav navbar-right">
+                                    <li class="active"><a class="smoth-scroll" href="/">Home <div class="ripple-wrapper"></div></a>
+                                        </li>
+                                <li><a class="smoth-scroll" href="/updateInfo">update Info</a>
+                                </li>
+                                <li><a class="smoth-scroll" href="/logout">logout</a>
+                                    </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1 style="color: white;"><span class="fa fa-anchor"></span> Profile Page</h1>
+    </div>
+
+    <div class="row" class="page-header text-center">
+                                    <% if (message.length > 0) { %>
+                                    <div style="text-align: center;" class="alert alert-danger"><%= message %></div>
+                                      <% } %>
+                                      
+                                    <% if (message1.length > 0) { %>
+                                    <div style="text-align: center;" class="alert alert-success"><%= message1 %></div>
+                                      <% } %>
+        <!-- LOCAL INFORMATION -->
+
+        <div class="col-sm-6">
+            <div class="well">
+                <h3 class="alert alert-success"><span class="fa fa-user"></span> Local</h3>
+                <p class="alert alert-info">
+                    <strong>id </strong>: <%= user.id %><br>
+                    <strong>First Name </strong>: <%= user.firstname %><br>
+                    <strong>Last Name </strong>: <%= user.lastname %><br>
+                    <strong>Username</strong>: <%= user.username %><br>
+                    <strong>Password </strong>: <%= user.password %><br> 
+                    <strong>CNIC </strong>: <%= user.cnic %><br>
+                    <strong>Address</strong>: <%= user.address %><br>
+                    <strong>Age </strong>: <%= user.age %><br>
+                    <strong>Cell Number </strong>: <%= user.cellnumber %><br>
+                    <strong>Date Of Admission </strong>: <%= user.dateofadmission %><br>
+                    <strong>Gender </strong>: <%= user.gender %><br>
+                    <strong>email </strong>: <%= user.email %><br>
+                    <strong>Semester </strong>: <%= user.semester_id %>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="well">
+                <p>
+                            <div class="alert alert-info" class="agileits_w3layouts_main_grid">
+                                <h3 class="alert alert-success" class="hTag" style=" color: black ; text-align: center; font-family: monospace; font-size: 20px"><b>Withdraw or Enroll to the course by entering Course ID</b></h3>
+
+                                <form action="/enroll" method="post">
+                                    <div class="form-group">
+                                    <span>
+                                        <label for="usr" class="lebelBorder" id="p1">Course ID: </label>
+                                        <input id="usr" style="text-decoration-color: black;" id="DSUID" name="course_id" type="text" placeholder="..">
+                                    </span><br>
+                                    <span>
+                                        <input type="hidden" id="DSUID" name="username" type="text" value="<%= user.username %>">
+                                    </span>
+                                    <div class="w3_agileits_submit">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class="buttonBorder" type="submit" value="Enroll to this course">
+                                    </div>
+                                    </div>
+                                </form>
+                                <form action="/withdraw" method="post">
+
+                                <div class="form-group">
+                                    <span>
+                                    <label for="usr" class="lebelBorder" id="p1">Course ID: </label>
+                                        <input id="usr" style="text-decoration-color: black;" id="DSUID" name="course_id" type="text" placeholder="..">
+                                    </span><br>
+                                    <span>
+                                        <input type="hidden" id="DSUID" name="username" type="text" value="<%= user.username %>">
+                                    </span>
+                                    <div class="w3_agileits_submit">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input class="buttonBorder" type="submit" value="Withdraw from this course">
+                                    </div>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                </p>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="well">
+                <p>
+                            <div class="alert alert-info" class="agileits_w3layouts_main_grid">
+                                <h3 class="alert alert-success class="alert alert-info"" class="hTag" style=" color: black ; text-align: center; font-family: monospace; font-size: 20px"><b> Show My courses </b></h3>
+                                <form action="/showMyCourse" method="post">
+                                    <div class="w3_agileits_submit">
+                                    <span>
+                                        <input type="hidden" id="DSUID" name="username" type="text" value="<%= user.username %>">
+                                    </span>
+                                        &nbsp;<input class="buttonBorder" type="submit" value="My Courses">
+                                    </div>
+                                </form>
+                                    <% if (MyCoursesData) { %>
+                                    <div style="text-align: center;" class="alert alert-success">
+                                    
+                                    <div class="table-responsive">
+                                    <table class="table table-hover">
+                                       <tr>
+                                          <th>Course_ID</th><th>Course_Name</th><th>Credit_Hours</th><th>Semester_ID</th>
+                                       </tr>
+
+                                       <% for (var i = 0; i < MyCoursesData.length; /* I save the data in a variable 'MyCoursesData', I don't know how you named your variable  */  i++) { %>
+                                        <tbody><tr>
+                                          <td><%= MyCoursesData[i].corse_id %></td>
+                                          <td><%= MyCoursesData[i].name %></td>
+                                          <td><%= MyCoursesData[i].creditHours %></td>
+                                          <td><%= MyCoursesData[i].semester_id %></td>
+                                        </tr>    </tbody>
+                                       <% } %>
+                                    </table>
+                                    </div>
+
+                                        <!--<div id="MyCoursesDataTable"></div>
+                                        <script type="text/javascript"> 
+                                        generateTableForMyCourses(MyCoursesData) </script>-->
+                                    </div>
+                                    <% } %>
+                            </div>
+                </p>
+            </div>
+        </div>
+
+        <div class="col-sm-8">
+            <div class="well">
+                <p>
+                            <div class="alert alert-info" class="agileits_w3layouts_main_grid">
+                                <h3 class="alert alert-success" class="hTag" style=" color: black ; text-align: center; font-family: monospace; font-size: 20px"><b>Show All Courses that are offered to me </b></h3>
+                                <form action="/showAllCourse" method="post">
+                                    <div class="w3_agileits_submit">
+                                    <span>
+                                        <input type="hidden" id="DSUID" name="username" type="text" value="<%= user.username %>">
+                                    </span>
+                                        &nbsp;<input class="buttonBorder" type="submit" value="All Courses">
+                                    </div>
+                                </form>
+                                    <% if (AllCoursesData) { %>
+                                    <div style="text-align: center;" class="alert alert-success">
+                                    
+                                    <div class="table-responsive">
+                                    <table class="table table-hover">
+                                       <tr>
+                                          <th>Course_ID</th><th>Course_Name</th><th>Credit_Hours</th><th>Semester_ID</th><th>Teacher_Name</th>
+                                       </tr>
+
+                                       <% for (var i = 0; i < AllCoursesData.length; /* I save the data in a variable 'AllCoursesData', I don't know how you named your variable  */  i++) { %>
+                                       <tbody>
+                                        <tr>
+                                          <td><%= AllCoursesData[i].id %></td>
+                                          <td><%= AllCoursesData[i].name %></td>
+                                          <td><%= AllCoursesData[i].creditHours %></td>
+                                          <td><%= AllCoursesData[i].semester_id %></td>
+                                          <td><%= AllCoursesData[i].Teacher_Name %></td>
+                                        </tr>
+                                        </tbody>    
+                                       <% } %>
+                                    </table>
+                                    </div>
+
+                                        <!--<div id="AllCoursesDataTable"></div>
+                                        <script type="text/javascript"> 
+                                        generateTableForMyCourses(AllCoursesData) </script>-->
+                                    </div>
+                                    <% } %>
+                            </div>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- //flexSlider -->
+    <!-- Back to Top Start -->
+    <a href="#" class="scroll-to-top"><i class="fa fa-angle-up"></i></a>
+    <!-- Back to Top End -->
+    
+    
+    <!-- All Javascript Plugins  -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/plugin.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyC0HAKwKinpoFKNGUwRBgkrKhF-sIqFUNA"></script>
+    
+    <!-- Main Javascript File  -->
+</body>
+</html>
